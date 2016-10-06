@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+	<style type="text/css">
+     
+.search {
+                padding: 80px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0.5px solid #dbdbdb;
+                width: 1000px;  
+                height: 1000px;
+}
+.button {
+                position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                background-color:#207cca;
+                color:#fafafa;
+}
+.button:hover  {
+                background-color:#fafafa;
+                color:#207cca;
+}
+	</style>
+</head>
+<body>
+	<form>
+	    <div style="
+    display: inline-flex;
+    /* vertical-align: middle; */
+    margin-left: 35%;
+    /* width: 100%; */
+    /* margin-right: 50%; */
+    margin-top: 20%;">
+
+	       <input type="text" name="inputid"  style="font-size: xx-large;height: 50px;width: 500px;placeholder=;" search"="" required="">
+	       <input id="search" class="button" type="button" value="Search">
+    	</div>
+
+</form>
+<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    $('#search').click(function() {
+ 
+        $.ajax({
+            url: '/interface',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+                alert($('form').serialize());
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+  </script>
+
+
+
+
+
+</body>
